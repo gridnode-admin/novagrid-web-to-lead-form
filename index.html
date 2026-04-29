@@ -16,96 +16,95 @@
 </head>
 
 <body>
+  <div class="page-wrapper">
+      <div>class="form-container">
+      <form 
+        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D68000004Expa" 
+        method="POST"
+        onsubmit="return beforeSubmit()"
+        target="_top"
+      >
 
-<div class="form-container">
+      <input type="hidden" name="oid" value="00D68000004Expa">
+      <input type="hidden" name="retURL" value="https://www.novagrid.ch/temp/preview_cm_previewfile.htm?tid=0.20850600%201743513083">
+      <input type="hidden" name="lead_source" value="Website">
+      <input type="hidden" name="recordType" value="012TG0000014shB">
+      <input type="hidden" name="currency" value="CHF">
+      <input type="hidden" name="status" value="Neu">
+      <input type="hidden" name="industry" value="Energy">
+      <input type="hidden" name="rating" value="Warm">
 
-<form 
-  action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D68000004Expa" 
-  method="POST"
-  onsubmit="return beforeSubmit()"
-  target="_top"
->
-
-<input type="hidden" name="oid" value="00D68000004Expa">
-<input type="hidden" name="retURL" value="https://www.novagrid.ch/temp/preview_cm_previewfile.htm?tid=0.20850600%201743513083">
-<input type="hidden" name="lead_source" value="Website">
-<input type="hidden" name="recordType" value="012TG0000014shB">
-<input type="hidden" name="currency" value="CHF">
-<input type="hidden" name="status" value="Neu">
-<input type="hidden" name="industry" value="Energy">
-<input type="hidden" name="rating" value="Warm">
-
-<div class="hp-field" aria-hidden="true">
-  <label for="website">Website</label>
-  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-</div>
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
 
 
-<!-- ENABLE DEBUG MODE -->
-<input type="hidden" name="debug" value="1">
-<input type="hidden" name="debugEmail" value="systemadministrator@novagrid.ch">
+      <!-- ENABLE DEBUG MODE -->
+      <input type="hidden" name="debug" value="1">
+      <input type="hidden" name="debugEmail" value="systemadministrator@novagrid.ch">
 
-<!-- 
-<input type="hidden" name="captcha_settings" value='{"keyname":"reCAPTCHAv2","fallback":"true","orgId":"00D68000004Expa","ts":""}'>
--->
+      <!-- 
+      <input type="hidden" name="captcha_settings" value='{"keyname":"reCAPTCHAv2","fallback":"true","orgId":"00D68000004Expa","ts":""}'>
+      -->
 
-<label>Vorname</label>
-<input id="first_name" name="first_name">
+      <label>Vorname</label>
+      <input id="first_name" name="first_name">
 
-<label>Nachname *</label>
-<input id="last_name" name="last_name" required>
+      <label>Nachname *</label>
+      <input id="last_name" name="last_name" required>
 
-<label>E-Mail *</label>
-<input id="email" name="email" type="email" required>
+      <label>E-Mail *</label>
+      <input id="email" name="email" type="email" required>
 
-<label>Firma</label>
-<input id="company" name="company">
+      <label>Firma</label>
+      <input id="company" name="company">
 
-<label>Telefon</label>
-<input name="phone">
+      <label>Telefon</label>
+      <input name="phone">
 
-<label>Mobil</label>
-<input name="mobile">
+      <label>Mobil</label>
+      <input name="mobile">
 
-<label>Strasse</label>
-<input name="street">
+      <label>Strasse</label>
+      <input name="street">
 
-<label>PLZ</label>
-<input name="zip">
+      <label>PLZ</label>
+      <input name="zip">
 
-<label>Stadt</label>
-<input name="city">
+      <label>Stadt</label>
+      <input name="city">
 
-<label>Land</label>
-<select name="country_code">
-  <option value="CH" selected>Schweiz</option>
-  <option value="DE">Deutschland</option>
-  <option value="AT">Österreich</option>
-  <option value="LI">Liechtenstein</option>
-</select>
+      <label>Land</label>
+      <select name="country_code">
+        <option value="CH" selected>Schweiz</option>
+        <option value="DE">Deutschland</option>
+        <option value="AT">Österreich</option>
+        <option value="LI">Liechtenstein</option>
+      </select>
 
-<label for="description">Nachricht</label>
-<textarea 
-  id="description"
-  name="description" 
-  rows="5" 
-  style="width:100%; padding:8px; border:1px solid #dcdcdc; border-radius:4px;"
-  placeholder="Ihre Nachricht..."
-  maxlength="1000"
-  required
-></textarea>
-<small class="form-hint">
-  Bitte beschreiben Sie Ihr Anliegen so genau wie möglich.
-</small>
+      <label for="description">Nachricht</label>
+      <textarea 
+        id="description"
+        name="description" 
+        rows="5" 
+        style="width:100%; padding:8px; border:1px solid #dcdcdc; border-radius:4px;"
+        placeholder="Ihre Nachricht..."
+        maxlength="1000"
+        required
+      ></textarea>
+      <small class="form-hint">
+        Bitte beschreiben Sie Ihr Anliegen so genau wie möglich.
+      </small>
 
-<!-- reCAPTCHA -->
-<div class="g-recaptcha" data-sitekey="6LeBW84sAAAAAK-GP1HY6iJwhgF2y1GVpH-MwhZR"></div>
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LeBW84sAAAAAK-GP1HY6iJwhgF2y1GVpH-MwhZR"></div>
 
-<button type="submit">SENDEN</button>
+      <button type="submit">SENDEN</button>
 
-</form>
-
-</div>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>
