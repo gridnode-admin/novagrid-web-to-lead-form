@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Kontaktformular</title>
-<!-- TEST -->
+
 <!-- CSS -->
 <link rel="stylesheet" href="styles.css">
 
@@ -23,36 +23,48 @@
   action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D68000004Expa" 
   method="POST"
   onsubmit="beforeSubmit()"
+  target="_top"
 >
 
 <input type="hidden" name="oid" value="00D68000004Expa">
-<input type="hidden" name="retURL" value="https://www.novagrid.ch">
-<input type="hidden" name="recordType" value="012TG0000014shB">
-<input type="hidden" name="currency" value="CHF">
+<input type="hidden" name="retURL" value="https://www.novagrid.ch/temp/preview_cm_previewfile.htm?tid=0.20850600%201743513083">
+<input type="hidden" name="RecordTypeId" value="00D68000004Expa">
+<input type="hidden" name="CurrencyIsoCode" value="CHF">
+<input type="hidden" name="Status" value="New">
+
 
 <input type="hidden" name="captcha_settings" value='{"keyname":"reCAPTCHAv2","fallback":"true","orgId":"00D68000004Expa","ts":""}'>
 
+<label>Vorname</label>
+<input id="first_name" name="FirstName">
+
 <label>Nachname *</label>
-<input id="last_name" name="last_name" required>
+<input id="last_name" name="LastName" required>
 
 <label>E-Mail *</label>
-<input id="email" name="email" type="email" required>
+<input id="email" name="Email" type="email" required>
 
 <label>Firma</label>
-<input id="company" name="company">
+<input id="company" name="Company">
 
 <label>Telefon</label>
-<input name="phone">
+<input name="Phone">
 
 <label>Mobil</label>
-<input name="mobile">
+<input name="MobilePhone">
+
+<label>Strasse</label>
+<input name="street">
+
+<label>PLZ</label>
+<input name="zip">
 
 <label>Stadt</label>
 <input name="city">
 
 <label>Land</label>
 <select name="country_code">
-  <option value="CH">Schweiz</option>
+  <option value="CH" selected>Schweiz</option>
   <option value="DE">Deutschland</option>
   <option value="AT">Österreich</option>
   <option value="LI">Liechtenstein</option>
