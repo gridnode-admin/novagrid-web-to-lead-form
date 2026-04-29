@@ -45,3 +45,37 @@ button {
   height: 0;
   overflow: hidden;
 }
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 0.5px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 120px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #59ff00;
+  box-shadow: 0 0 3px rgba(89, 255, 0, 0.4);
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-hint {
+  color: #777;
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}

@@ -1,9 +1,16 @@
 const formStartTime = Date.now();
 
+let formStartTime;
+
+window.addEventListener("load", () => {
+  formStartTime = Date.now();
+});
+
 function beforeSubmit() {
   const company = document.getElementById("company");
   const lastName = document.getElementById("last_name");
   const honeypot = document.getElementById("website");
+  const messageField = document.getElementById("description");
 
   if (honeypot && honeypot.value.trim() !== "") {
     return false;
@@ -25,6 +32,22 @@ function beforeSubmit() {
 
   if (company && lastName && company.value.trim() === "") {
     company.value = lastName.value.trim();
+  }
+
+  if (messageField) {
+  const structuredMessage = `
+  Nachricht:
+  ${messageField.value}
+
+  ------------------------
+  Kontaktinformationen:
+  Name: ${lastName?.value || ""}
+  Firma: ${company?.value || ""}
+  Email: ${document.getElementById("email")?.value || ""}
+  Telefon: ${document.getElementById("phone")?.value || ""}
+  `;
+
+    messageField.value = structuredMessage.trim();
   }
 
   return true;
