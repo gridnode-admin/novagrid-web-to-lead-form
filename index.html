@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Novagrid Web-to-Lead Test</title>
+<meta charset="UTF-8">
+<title>Kontaktformular</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- JS -->
+<script src="script.js" defer></script>
+
 </head>
+
 <body>
-  <h1>Web-to-Lead Test</h1>
-  <p>If you can see this, GitHub Pages works.</p>
+
+<div class="form-container">
+
+<form 
+  action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D68000004Expa" 
+  method="POST"
+  onsubmit="beforeSubmit()"
+>
+
+<input type="hidden" name="oid" value="00D68000004Expa">
+<input type="hidden" name="retURL" value="https://www.novagrid.ch">
+<input type="hidden" name="recordType" value="012TG0000014shB">
+<input type="hidden" name="currency" value="CHF">
+
+<input type="hidden" name="captcha_settings" value='{"keyname":"reCAPTCHAv2","fallback":"true","orgId":"00D68000004Expa","ts":""}'>
+
+<label>Nachname *</label>
+<input id="last_name" name="last_name" required>
+
+<label>E-Mail *</label>
+<input id="email" name="email" type="email" required>
+
+<label>Firma</label>
+<input id="company" name="company">
+
+<label>Telefon</label>
+<input name="phone">
+
+<label>Mobil</label>
+<input name="mobile">
+
+<label>Stadt</label>
+<input name="city">
+
+<label>Land</label>
+<select name="country_code">
+  <option value="CH">Schweiz</option>
+  <option value="DE">Deutschland</option>
+  <option value="AT">Österreich</option>
+  <option value="LI">Liechtenstein</option>
+</select>
+
+<!-- reCAPTCHA -->
+<div class="g-recaptcha" data-sitekey="6LeBW84sAAAAAK-GP1HY6iJwhgF2y1GVpH-MwhZR"></div>
+
+<button type="submit">SENDEN</button>
+
+</form>
+
+</div>
+
 </body>
 </html>
