@@ -22,7 +22,7 @@
 <form 
   action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D68000004Expa" 
   method="POST"
-  onsubmit="beforeSubmit()"
+  onsubmit="return beforeSubmit()"
   target="_top"
 >
 
@@ -35,11 +35,20 @@
 <input type="hidden" name="industry" value="Energy">
 <input type="hidden" name="rating" value="Warm">
 
+<div class="hp-field" aria-hidden="true">
+  <label for="website">Website</label>
+  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+</div>
+
 
 <!-- ENABLE DEBUG MODE -->
 <input type="hidden" name="debug" value="1">
 <input type="hidden" name="debugEmail" value="systemadministrator@novagrid.ch">
+
+<!-- 
 <input type="hidden" name="captcha_settings" value='{"keyname":"reCAPTCHAv2","fallback":"true","orgId":"00D68000004Expa","ts":""}'>
+-->
+
 <label>Vorname</label>
 <input id="first_name" name="first_name">
 
