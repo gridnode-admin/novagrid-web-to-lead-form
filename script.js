@@ -155,6 +155,5 @@ function applyTranslations() {
 window.addEventListener("load", function () {
   formStartTime = Date.now();
   setSalesforceLanguage();
+  applyTranslations();
 });
-
-applyTranslations();
