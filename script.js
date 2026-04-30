@@ -1,5 +1,3 @@
-const formStartTime = Date.now();
-
 const translations = {
   de: {
     firstName: "Vorname",
@@ -99,7 +97,10 @@ function beforeSubmit() {
 
 function getLanguage() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("lang") || "de"; // default German
+
+  return params.get("forceLang") 
+      || params.get("lang") 
+      || "de";
 }
 
 function mapLanguageToSalesforce(lang) {
