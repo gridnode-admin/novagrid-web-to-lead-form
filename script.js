@@ -118,10 +118,18 @@ function setSalesforceLanguage() {
   const lang = getLanguage();
   const sfLang = mapLanguageToSalesforce(lang);
 
+  console.log("Detected lang:", lang);
+  console.log("Mapped SF lang:", sfLang);
+
   const field = document.getElementById("language-field");
+
+  console.log("Field:", field);
 
   if (field) {
     field.value = sfLang;
+    console.log("Final field value:", field.value);
+  } else {
+    console.log("❌ language-field NOT FOUND");
   }
 }
 
