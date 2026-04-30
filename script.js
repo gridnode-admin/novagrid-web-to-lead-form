@@ -77,7 +77,7 @@ function beforeSubmit() {
   }
 
   if (messageField) {
-  const structuredMessage = `
+    const structuredMessage = `
   Nachricht:
   ${messageField.value}
 
@@ -98,9 +98,9 @@ function beforeSubmit() {
 function getLanguage() {
   const params = new URLSearchParams(window.location.search);
 
-  return params.get("forceLang") 
-      || params.get("lang") 
-      || "de";
+  return params.get("forceLang")
+    || params.get("lang")
+    || "de";
 }
 
 function mapLanguageToSalesforce(lang) {
@@ -133,7 +133,28 @@ function setSalesforceLanguage() {
   }
 }
 
+function applyTranslations() {
+  const lang = getLanguage();
+  const t = translations[lang] || translations["de"];
+
+  document.getElementById("label-firstName").innerText = t.firstName;
+  document.getElementById("label-lastName").innerText = t.lastName;
+  document.getElementById("label-email").innerText = t.email;
+  document.getElementById("label-company").innerText = t.company;
+  document.getElementById("label-phone").innerText = t.phone;
+  document.getElementById("label-mobile").innerText = t.mobile;
+  document.getElementById("label-street").innerText = t.street;
+  document.getElementById("label-zip").innerText = t.zip;
+  document.getElementById("label-city").innerText = t.city;
+  document.getElementById("label-country").innerText = t.country;
+  document.getElementById("label-message").innerText = t.message;
+  document.getElementById("submit-button").innerText = t.submit;
+  document.getElementById("form-hint").innerText = t.hint;
+}
+
 window.addEventListener("load", function () {
   formStartTime = Date.now();
   setSalesforceLanguage();
 });
+
+applyTranslations();
