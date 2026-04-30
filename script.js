@@ -1,10 +1,54 @@
 const formStartTime = Date.now();
 
-let formStartTime;
+const translations = {
+  de: {
+    firstName: "Vorname",
+    lastName: "Nachname *",
+    email: "E-Mail *",
+    company: "Firma",
+    phone: "Telefon",
+    mobile: "Mobil",
+    street: "Strasse",
+    zip: "PLZ",
+    city: "Stadt",
+    country: "Land",
+    message: "Nachricht",
+    submit: "SENDEN",
+    hint: "Bitte beschreiben Sie Ihr Anliegen so genau wie möglich."
+  },
+  fr: {
+    firstName: "Prénom",
+    lastName: "Nom *",
+    email: "E-mail *",
+    company: "Entreprise",
+    phone: "Téléphone",
+    mobile: "Mobile",
+    street: "Rue",
+    zip: "Code postal",
+    city: "Ville",
+    country: "Pays",
+    message: "Message",
+    submit: "ENVOYER",
+    hint: "Veuillez décrire votre demande aussi précisément que possible."
+  },
+  it: {
+    firstName: "Nome",
+    lastName: "Cognome *",
+    email: "Email *",
+    company: "Azienda",
+    phone: "Telefono",
+    mobile: "Cellulare",
+    street: "Via",
+    zip: "CAP",
+    city: "Città",
+    country: "Paese",
+    message: "Messaggio",
+    submit: "INVIA",
+    hint: "Si prega di descrivere la richiesta nel modo più preciso possibile."
+  }
+};
 
-window.addEventListener("load", () => {
-  formStartTime = Date.now();
-});
+let formStartTime;
 
 function beforeSubmit() {
   const company = document.getElementById("company");
@@ -52,3 +96,35 @@ function beforeSubmit() {
 
   return true;
 }
+
+function getLanguage() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("lang") || "de"; // default German
+}
+
+function mapLanguageToSalesforce(lang) {
+  const langMap = {
+    de: "D",
+    fr: "F",
+    it: "I",
+    en: "E"
+  };
+
+  return langMap[lang] || "D"; // fallback German
+}
+
+function setSalesforceLanguage() {
+  const lang = getLanguage();
+  const sfLang = mapLanguageToSalesforce(lang);
+
+  const field = document.getElementById("language-field");
+
+  if (field) {
+    field.value = sfLang;
+  }
+}
+
+window.addEventListener("load", function () {
+  formStartTime = Date.now();
+  setSalesforceLanguage();
+});
