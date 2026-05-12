@@ -58,9 +58,17 @@ let formStartTime;
 function beforeSubmit() {
   const company = document.getElementById("company");
   const lastName = document.getElementById("last_name");
+
+  // Ensure redirect URL is set immediately before submit
+  const lang = getLanguage();
+  const retUrlField = document.getElementById("retURL");
+  if (retUrlField) {
+    retUrlField.value =
+      redirectUrls[lang] || redirectUrls["de"];
+  }
+
   const honeypot = document.getElementById("website");
   const messageField = document.getElementById("description");
-
   if (honeypot && honeypot.value.trim() !== "") {
     return false;
   }
@@ -100,18 +108,6 @@ function beforeSubmit() {
   }
 
   return true;
-}
-
-function setRedirectUrl() {
-  const lang = getLanguage();
-  const redirectUrl =
-    redirectUrls[lang] || redirectUrls["de"];
-
-  const retUrlField = document.getElementById("retURL");
-
-  if (retUrlField) {
-    retUrlField.value = redirectUrl;
-  }
 }
 
 function getLanguage() {
@@ -174,6 +170,5 @@ function applyTranslations() {
 window.addEventListener("load", function () {
   formStartTime = Date.now();
   setSalesforceLanguage();
-  setRedirectUrl();
   applyTranslations();
 });
