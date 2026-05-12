@@ -46,6 +46,13 @@ const translations = {
   }
 };
 
+const redirectUrls = {
+  de: "https://www.novagrid.ch/markttor-wir-haben-ihre-anfrage-erhalten",
+  en: "https://www.novagrid.ch/markttor-wir-haben-ihre-anfrage-erhalten",
+  fr: "https://www.novagrid.ch/portail-du-marche-nous-avons-bien-recu-votre-demande",
+  it: "https://www.novagrid.ch/portale-del-mercato-abbiamo-ricevuto-la-vostra-richiesta"
+};
+
 let formStartTime;
 
 function beforeSubmit() {
@@ -93,6 +100,18 @@ function beforeSubmit() {
   }
 
   return true;
+}
+
+function setRedirectUrl() {
+  const lang = getLanguage();
+  const redirectUrl =
+    redirectUrls[lang] || redirectUrls["de"];
+
+  const retUrlField = document.getElementById("retURL");
+
+  if (retUrlField) {
+    retUrlField.value = redirectUrl;
+  }
 }
 
 function getLanguage() {
@@ -155,5 +174,6 @@ function applyTranslations() {
 window.addEventListener("load", function () {
   formStartTime = Date.now();
   setSalesforceLanguage();
+  setRedirectUrl();
   applyTranslations();
 });
